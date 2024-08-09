@@ -1,4 +1,4 @@
-package br.com.fuctura.utils;
+package br.com.fuctura.jpa;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

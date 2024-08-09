@@ -15,8 +15,9 @@ public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_seq")
 	@SequenceGenerator(name = "endereco_seq", allocationSize = 1)
+	@Column(unique = true)
 	private Long codigo;
-	@Column(length = 8)
+	@Column(length = 8, nullable = false)
 	private String cep;
 	private String logradouro;
 	private String numero;
