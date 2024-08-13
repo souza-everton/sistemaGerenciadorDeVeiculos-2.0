@@ -45,17 +45,6 @@ public class Veiculo {
 
 	}
 
-	public Veiculo(String marca, String modelo, Integer ano, String placa, Double preco, TipoVeiculo tipoVeiculo,
-			Loja loja) {
-		this.marca = marca;
-		this.modelo = modelo;
-		this.ano = ano;
-		this.placa = placa;
-		this.preco = preco;
-		this.tipoVeiculo = tipoVeiculo;
-		this.loja = loja;
-	}
-
 	public Long getCodigo() {
 		return codigo;
 	}

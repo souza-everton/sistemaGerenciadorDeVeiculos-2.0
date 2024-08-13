@@ -1,6 +1,7 @@
 package br.com.fuctura.repository.impl;
 
-import br.com.fuctura.model.TipoVeiculo;
+import java.util.List;
+
 import br.com.fuctura.model.Veiculo;
 import br.com.fuctura.repository.interfaces.IVeiculoRepository;
 import jakarta.persistence.EntityManager;
@@ -23,44 +24,13 @@ public class VeiculoRepositoryImpl implements IVeiculoRepository {
 	}
 
 	@Override
-	public void update(String uniquePlaca, Integer opcao, String marca, String modelo, Integer ano, String Placa,
-			Double preco, String categoria, String descricao) {
+	public Veiculo update(Veiculo veiculo) {
 		entityManager.getTransaction().begin();
-		Long codigoVeiculo = findByPlaca(uniquePlaca).getCodigo();
-		Veiculo veiculo = entityManager.find(Veiculo.class, codigoVeiculo);
-		TipoVeiculo tipoVeiculo = veiculo.getTipoVeiculo();
-		veiculo.setMarca(marca);
-		veiculo.setModelo(modelo);
-		veiculo.setAno(ano);
-		veiculo.setPlaca(Placa);
-		veiculo.setPreco(preco);
-		tipoVeiculo.setCategoria(categoria);
-		tipoVeiculo.setDescricao(descricao);
-
-		switch (opcao) {
-		case 1:
-			veiculo.setMarca(marca);
-			break;
-		case 2:
-			veiculo.setModelo(modelo);
-			break;
-		case 3:
-			veiculo.setAno(ano);
-			break;
-		case 4:
-			veiculo.setPlaca(Placa);
-			break;
-		case 5:
-			veiculo.setPreco(preco);
-			break;
-		case 6:
-			tipoVeiculo.setCategoria(categoria);
-			break;
-		case 7:
-			tipoVeiculo.setDescricao(descricao);
-			break;
-		}
+		entityManager.merge(veiculo);
 		entityManager.getTransaction().commit();
+
+		return veiculo;
+
 	}
 
 	@Override
@@ -81,6 +51,15 @@ public class VeiculoRepositoryImpl implements IVeiculoRepository {
 		Veiculo resultadoConsulta = query.getSingleResult();
 
 		return resultadoConsulta;
+	}
+
+	@Override
+	public List<Veiculo> findAll() {
+		String comandoSQL = "select v from Veiculo v";
+		TypedQuery<Veiculo> query = entityManager.createQuery(comandoSQL, Veiculo.class);
+		
+		List<Veiculo> resultList = query.getResultList();
+		return resultList;
 	}
 
 }

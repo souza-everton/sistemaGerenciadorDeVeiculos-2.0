@@ -1,4 +1,4 @@
-package br.com.fuctura;
+package br.com.fuctura.aplicacao;
 
 import br.com.fuctura.dto.EnderecoDTO;
 import br.com.fuctura.model.Cliente;
@@ -20,7 +20,7 @@ public class App {
 
 		try {
 			EnderecoDTO enderecoDTO = viacepService.getEndereco("50070-425");
-			endereco = enderecoService.convertToEntity(enderecoDTO);
+			endereco = enderecoService.convertToEndereco(enderecoDTO);
 			endereco.setNumero("950");
 			
 			//System.out.println(endereco);

@@ -9,8 +9,23 @@ public class VeiculoDTO {
 	private String modelo;
 	private Integer ano;
 	private String placa;
+	private Double preco;
 	private TipoVeiculo tipoVeiculo;
 	private Loja loja;
+	
+	public VeiculoDTO() {
+		
+	}
+
+	public VeiculoDTO(String marca, String modelo, Integer ano, String placa,Double preco, TipoVeiculo tipoVeiculo, Loja loja) {
+		this.marca = marca;
+		this.modelo = modelo;
+		this.ano = ano;
+		this.placa = placa;
+		this.preco = preco;
+		this.tipoVeiculo = tipoVeiculo;
+		this.loja = loja;
+	}
 
 	public String getMarca() {
 		return marca;
@@ -42,6 +57,14 @@ public class VeiculoDTO {
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
 	public TipoVeiculo getTipoVeiculo() {
