@@ -35,7 +35,7 @@ public class Cliente extends Pessoa {
 				"\nCódigo: " + getCodigo() +
 				"\nNome: " + getNome() + 
 				"\nCPF: " + getCpf() +
-				"\nCelular:" + getCelular() +
+				"\nCelular: " + getCelular() +
 				"\nCEP: " + endereco.getCep() +
 				"\nLogradouro: " + endereco.getLogradouro() +
 				", " + endereco.getNumero() +

@@ -17,7 +17,7 @@ public class Endereco {
 	@SequenceGenerator(name = "endereco_seq", allocationSize = 1)
 	@Column(unique = true)
 	private Long codigo;
-	@Column(length = 8, nullable = false)
+	@Column(nullable = false)
 	private String cep;
 	private String logradouro;
 	private String numero;

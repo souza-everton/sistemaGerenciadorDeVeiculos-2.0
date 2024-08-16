@@ -8,8 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -25,20 +26,20 @@ public class Venda {
 	@Column(nullable = false)
 	private Double valor;
 
-	@Column(nullable = false)
-	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(nullable = false)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Cliente cliente;
 
-	@Column(nullable = false)
-	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(nullable = false)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Vendedor vendedor;
 
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Loja loja;
 
-	@Column(nullable = false)
-	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(nullable = false)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Veiculo veiculo;
 
 	private LocalDateTime dataDaVenda;
@@ -93,5 +94,21 @@ public class Venda {
 
 	public Long getCodigo() {
 		return codigo;
+	}
+	
+	@Override
+	public String toString() {
+		return "\n-------------------------------------------------------------" +
+				"\nCódigo: " + getCodigo() +
+				"\nData: " + getDataDaVenda() +
+				"\nLoja: " + loja.getNome() + 
+				"\nPlaca do Veículo: " + veiculo.getPlaca() +
+				"\nModelo do Veículo:" + veiculo.getModelo() +
+				"\nAno do Veículo: " + veiculo.getAno() +
+				"\nVendedor: " + vendedor.getNome() +
+				" - " + vendedor.getCpf() +
+				"\nCliente: " + cliente.getNome() +
+				" - " + cliente.getCpf() +
+				"\n-------------------------------------------------------------";
 	}
 }

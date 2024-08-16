@@ -1,13 +1,16 @@
 package br.com.fuctura.service;
 
 import br.com.fuctura.dto.LojaDTO;
+import br.com.fuctura.jpa.JpaTransactionManager;
 import br.com.fuctura.model.Loja;
 import br.com.fuctura.repository.impl.LojaRepositoryImpl;
+import jakarta.persistence.EntityManager;
 
 public class LojaService {
 
-	LojaRepositoryImpl lojaRepository;
-	EnderecoService enderecoService;
+	EntityManager entityManager = JpaTransactionManager.getEntityManager();
+	LojaRepositoryImpl lojaRepository = new LojaRepositoryImpl(entityManager);
+	EnderecoService enderecoService = new EnderecoService();
 
 	public Loja convertToLoja(LojaDTO lojaDTO) {
 		Loja loja = new Loja();

@@ -1,8 +1,5 @@
 package br.com.fuctura.dto;
 
-import br.com.fuctura.model.Loja;
-import br.com.fuctura.model.TipoVeiculo;
-
 public class VeiculoDTO {
 
 	private String marca;
@@ -10,14 +7,14 @@ public class VeiculoDTO {
 	private Integer ano;
 	private String placa;
 	private Double preco;
-	private TipoVeiculo tipoVeiculo;
-	private Loja loja;
+	private TipoVeiculoDTO tipoVeiculo;
+	private LojaDTO loja;
 	
 	public VeiculoDTO() {
 		
 	}
 
-	public VeiculoDTO(String marca, String modelo, Integer ano, String placa,Double preco, TipoVeiculo tipoVeiculo, Loja loja) {
+	public VeiculoDTO(String marca, String modelo, Integer ano, String placa,Double preco, TipoVeiculoDTO tipoVeiculo, LojaDTO loja) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.ano = ano;
@@ -67,19 +64,19 @@ public class VeiculoDTO {
 		this.preco = preco;
 	}
 
-	public TipoVeiculo getTipoVeiculo() {
+	public TipoVeiculoDTO getTipoVeiculo() {
 		return tipoVeiculo;
 	}
 
-	public void setTipoVeiculo(TipoVeiculo tipoVeiculo) {
+	public void setTipoVeiculo(TipoVeiculoDTO tipoVeiculo) {
 		this.tipoVeiculo = tipoVeiculo;
 	}
 
-	public Loja getLoja() {
+	public LojaDTO getLoja() {
 		return loja;
 	}
 
-	public void setLoja(Loja loja) {
+	public void setLoja(LojaDTO loja) {
 		this.loja = loja;
 	}
 }

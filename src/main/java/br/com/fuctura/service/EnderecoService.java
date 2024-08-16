@@ -12,6 +12,7 @@ public class EnderecoService {
 		endereco.setBairro(enderecoDto.getBairro());
 		endereco.setLocalidade(enderecoDto.getLocalidade());
 		endereco.setComplemento(enderecoDto.getComplemento());
+		endereco.setNumero(enderecoDto.getNumero());
 		return endereco;
 	}
 	
@@ -22,6 +23,7 @@ public class EnderecoService {
 		enderecoDTO.setBairro(endereco.getBairro());
 		enderecoDTO.setLocalidade(endereco.getLocalidade());
 		enderecoDTO.setComplemento(endereco.getComplemento());
+		enderecoDTO.setNumero(endereco.getNumero());
 		return enderecoDTO;
 	}
 }

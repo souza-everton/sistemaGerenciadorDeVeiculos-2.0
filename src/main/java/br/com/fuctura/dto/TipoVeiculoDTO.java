@@ -5,6 +5,15 @@ public class TipoVeiculoDTO {
 	private String categoria;
 	private String descricao;
 
+	public TipoVeiculoDTO() {
+
+	}
+
+	public TipoVeiculoDTO(String categoria, String descricao) {
+		this.categoria = categoria;
+		this.descricao = descricao;
+	}
+
 	public String getCategoria() {
 		return categoria;
 	}

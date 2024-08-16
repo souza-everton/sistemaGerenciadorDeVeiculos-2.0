@@ -7,6 +7,8 @@ import br.com.fuctura.repository.impl.VeiculoRepositoryImpl;
 public class VeiculoService {
 
 	VeiculoRepositoryImpl veiculoRepository;
+	TipoVeiculoService tipoVeiculoService;
+	LojaService lojaService;
 
 	public Veiculo convertToVeiculo(VeiculoDTO veiculoDTO) {
 		Veiculo veiculo = new Veiculo();
@@ -15,8 +17,8 @@ public class VeiculoService {
 		veiculo.setAno(veiculoDTO.getAno());
 		veiculo.setPlaca(veiculoDTO.getPlaca());
 		veiculo.setPreco(veiculoDTO.getPreco());
-		veiculo.setTipoVeiculo(veiculoDTO.getTipoVeiculo());
-		veiculo.setLoja(veiculoDTO.getLoja());
+		veiculo.setTipoVeiculo(tipoVeiculoService.convertToTipoVeiculo(veiculoDTO.getTipoVeiculo()));
+		veiculo.setLoja(lojaService.convertToLoja(veiculoDTO.getLoja()));
 
 		return veiculo;
 	}
@@ -28,8 +30,8 @@ public class VeiculoService {
 		veiculoDTO.setAno(veiculo.getAno());
 		veiculoDTO.setPlaca(veiculo.getPlaca());
 		veiculoDTO.setPreco(veiculo.getPreco());
-		veiculoDTO.setTipoVeiculo(veiculo.getTipoVeiculo());
-		veiculoDTO.setLoja(veiculo.getLoja());
+		veiculoDTO.setTipoVeiculo(tipoVeiculoService.convertToTipoVeiculoDTO(veiculo.getTipoVeiculo()));
+		veiculoDTO.setLoja(lojaService.convertToLojaDTO(veiculo.getLoja()));
 		return veiculoDTO;
 	}
 
@@ -42,8 +44,8 @@ public class VeiculoService {
 		veiculoAtual.setAno(veiculoDTO.getAno());
 		veiculoAtual.setPlaca(veiculoDTO.getPlaca());
 		veiculoAtual.setPreco(veiculoDTO.getPreco());
-		veiculoAtual.setTipoVeiculo(veiculoDTO.getTipoVeiculo());
-		veiculoAtual.setLoja(veiculoDTO.getLoja());
+		veiculoAtual.setTipoVeiculo(tipoVeiculoService.convertToTipoVeiculo(veiculoDTO.getTipoVeiculo()));
+		veiculoAtual.setLoja(lojaService.convertToLoja(veiculoDTO.getLoja()));
 
 		veiculoAtual = veiculoRepository.update(veiculoAtual);
 

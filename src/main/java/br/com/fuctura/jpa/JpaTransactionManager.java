@@ -9,7 +9,11 @@ public class JpaTransactionManager {
 	private static final EntityManagerFactory factory;
 	
 	static {
-		factory = Persistence.createEntityManagerFactory("VEICULOS-PU");
+	    try {
+	        factory = Persistence.createEntityManagerFactory("VEICULOS-PU");
+	    } catch (Exception e) {
+	        throw new RuntimeException("Failed to create EntityManagerFactory", e);
+	    }
 	}
 	
 	public static EntityManager getEntityManager() {
